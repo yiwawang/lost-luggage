@@ -4,98 +4,191 @@
   <meta charset="UTF-8">
   <title>Lost Luggage / 行李丢失 / 紛失した荷物</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body{
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
                    "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", sans-serif;
-      background:#f5f5f5; margin:0; padding:20px; text-align:center;
+      background:#f5f5f5;
+      margin:0;
+      padding:20px;
+      text-align:center;
     }
+
     .card{
-      max-width:480px; margin:auto; background:white; padding:22px 22px 26px;
-      border-radius:18px; box-shadow:0 6px 18px rgba(0,0,0,0.10);
+      max-width:480px;
+      margin:auto;
+      background:white;
+      padding:22px 22px 26px;
+      border-radius:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.10);
     }
+
     .top{
-      display:flex; flex-direction:column; align-items:center; gap:10px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
       padding:6px 0 10px;
     }
+
     .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      background:#fff3f3; color:#b71c1c;
-      padding:8px 12px; border-radius:999px; font-weight:700; font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:#fff3f3;
+      color:#b71c1c;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:14px;
       border:1px solid #ffe0e0;
     }
+
     h1{
-      margin:4px 0 4px; color:#d32f2f; font-size:28px; letter-spacing:0.2px;
+      margin:4px 0;
+      color:#d32f2f;
+      font-size:28px;
     }
-    .subtitle{ margin:0 0 8px; color:#666; font-size:13px; }
+
+    .subtitle{
+      margin:0 0 8px;
+      color:#666;
+      font-size:13px;
+    }
+
     .msg{
-      font-size:16px; line-height:1.6; margin:10px 0 0; color:#222;
+      font-size:16px;
+      line-height:1.6;
+      margin:10px 0 0;
+      color:#222;
     }
-    .divider{ height:1px; background:#eee; margin:16px 0; }
-    .lang{ text-align:left; margin-top:8px; }
-    .lang h2{ font-size:15px; margin:0 0 6px; color:#111; }
-    .lang p{ margin:0 0 8px; color:#222; line-height:1.65; font-size:15px; }
-    .items{ margin-top:10px; }
+
+    .divider{
+      height:1px;
+      background:#eee;
+      margin:16px 0;
+    }
+
+    .lang{
+      text-align:left;
+      margin-top:8px;
+    }
+
+    .lang h2{
+      font-size:15px;
+      margin:0 0 6px;
+      color:#111;
+    }
+
+    .lang p{
+      margin:0 0 8px;
+      line-height:1.65;
+      font-size:15px;
+    }
+
+    .items{
+      margin-top:10px;
+    }
+
     .item{
-      display:flex; align-items:center; justify-content:flex-start; gap:10px;
-      margin:10px 0; color:#333; font-size:15px;
-      background:#fafafa; border:1px solid #eee; padding:10px 12px; border-radius:12px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:10px 0;
+      font-size:15px;
+      background:#fafafa;
+      border:1px solid #eee;
+      padding:10px 12px;
+      border-radius:12px;
+      color:#333;
     }
+
     .icon{
-      width:30px; height:30px; border-radius:10px;
-      display:inline-flex; align-items:center; justify-content:center;
-      background:#f0f0f0; font-size:16px; flex:0 0 auto;
+      width:30px;
+      height:30px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#f0f0f0;
+      font-size:16px;
+      flex-shrink:0;
     }
+
     a.button{
-      display:block; margin:12px 0; padding:14px;
-      text-decoration:none; color:white; border-radius:14px;
-      font-size:17px; font-weight:700;
+      display:block;
+      margin:12px 0;
+      padding:14px;
+      text-decoration:none;
+      color:white;
+      border-radius:14px;
+      font-size:17px;
+      font-weight:700;
     }
+
     a.button.call{ background:#1976d2; }
     a.button.sms{ background:#2e7d32; }
     a.button.mail{ background:#6a1b9a; }
+
     .note{
-      margin-top:14px; font-size:13px; color:#777; line-height:1.55;
+      margin-top:14px;
+      font-size:13px;
+      color:#777;
+      line-height:1.55;
     }
-    /* Cute SVG sizing */
+
+    /* Cute SVG size */
     .cute{
-      width:92px; height:92px;
+      width:92px;
+      height:92px;
       filter: drop-shadow(0 6px 10px rgba(0,0,0,0.10));
     }
+
+    /* 🌙 DARK MODE */
     @media (prefers-color-scheme: dark) {
-  body {
-    background: #121212;
-  }
-  .card {
-    background: #1e1e1e;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-  }
-  h1 {
-    color: #ff6b6b;
-  }
-  .subtitle, .note {
-    color: #aaa;
-  }
-  .msg, .lang p, .lang h2 {
-    color: #f0f0f0;
-  }
-  .item {
-    background: #2a2a2a;
-    border-color: #333;
-    color: #eee;
-  }
-  .icon {
-    background: #333;
-  }
-}
+      body{
+        background:#121212;
+      }
+      .card{
+        background:#1e1e1e;
+        box-shadow:0 8px 22px rgba(0,0,0,0.6);
+      }
+      h1{
+        color:#ff6b6b;
+      }
+      .subtitle,
+      .note{
+        color:#aaa;
+      }
+      .msg,
+      .lang p,
+      .lang h2{
+        color:#f0f0f0;
+      }
+      .item{
+        background:#2a2a2a;
+        border-color:#333;
+        color:#eee;
+      }
+      .icon{
+        background:#333;
+      }
+      .badge{
+        background:#2a1a1a;
+        color:#ffb3b3;
+        border-color:#402020;
+      }
+    }
   </style>
 </head>
+
 <body>
   <div class="card">
     <div class="top">
-      <!-- Cute luggage + heart icon (SVG) -->
-      <svg class="cute" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Cute luggage icon" role="img">
-        <!-- background bubble -->
+
+      <!-- Cute luggage icon -->
+      <svg class="cute" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Cute luggage">
         <defs>
           <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stop-color="#fff1f1"/>
@@ -106,30 +199,24 @@
             <stop offset="1" stop-color="#ffb74d"/>
           </linearGradient>
         </defs>
+
         <circle cx="60" cy="60" r="54" fill="url(#bg)" stroke="#ffe0e0" stroke-width="3"/>
-        <!-- handle -->
         <rect x="44" y="22" width="32" height="14" rx="7" fill="#555"/>
         <rect x="48" y="26" width="24" height="8" rx="4" fill="#777"/>
-        <!-- suitcase -->
         <rect x="34" y="36" width="52" height="56" rx="14" fill="url(#case)" stroke="#f59f00" stroke-width="3"/>
         <rect x="44" y="44" width="32" height="40" rx="10" fill="#ffd180" opacity="0.85"/>
         <rect x="58" y="36" width="4" height="56" fill="#f59f00" opacity="0.7"/>
-        <!-- wheels -->
         <circle cx="44" cy="94" r="6" fill="#555"/>
         <circle cx="76" cy="94" r="6" fill="#555"/>
-        <!-- heart tag -->
         <path d="M92 56c0-4 3-7 7-7 3 0 6 2 7 5 1-3 4-5 7-5 4 0 7 3 7 7 0 8-14 16-14 16S92 64 92 56z"
               fill="#ff5252" opacity="0.95" transform="translate(-9,-2) scale(0.78)"/>
-        <circle cx="90" cy="54" r="4" fill="#fff" opacity="0.9"/>
       </svg>
 
       <div class="badge">🧳 Lost Item • Thank you for helping!</div>
-
       <h1>Lost Luggage</h1>
       <div class="subtitle">行李丢失 · 紛失した荷物 · Lost Item Tag</div>
     </div>
 
-    <!-- Messages -->
     <div class="lang">
       <h2>English</h2>
       <p class="msg">
@@ -160,33 +247,20 @@
 
     <div class="divider"></div>
 
-    <!-- Info items -->
     <div class="items">
-      <div class="item">
-        <span class="icon">📍</span>
-        <span><strong>Location</strong> / 所在地 / 場所：California, USA</span>
-      </div>
-      <div class="item">
-        <span class="icon">📞</span>
-        <span><strong>Phone</strong> / 电话 / 電話：+1 (602) 814-1450</span>
-      </div>
-      <div class="item">
-        <span class="icon">✉️</span>
-        <span><strong>Email</strong> / 邮箱 / メール：yiwawang@gmail.com</span>
-      </div>
+      <div class="item"><span class="icon">📍</span>California, USA</div>
+      <div class="item"><span class="icon">📞</span>+1 (602) 814-1450</div>
+      <div class="item"><span class="icon">✉️</span>yiwawang@gmail.com</div>
     </div>
 
-    <!-- Action buttons -->
-    <a class="button call" href="tel:16028141450">📞 Call / 打电话 / 電話する</a>
-
+    <a class="button call" href="tel:16028141450">📞 Call</a>
     <a class="button sms"
        href="sms:16028141450?body=Hello!%20I%20found%20your%20luggage.%20(你好！我找到你的行李了。荷物を見つけました。)">
-      💬 Text / 发短信 / メッセージ
+       💬 Text
     </a>
-
     <a class="button mail"
-       href="mailto:yiwawang@gmail.com?subject=Found%20your%20luggage%20%2F%20找到你的行李%20%2F%20荷物を見つけました">
-      ✉️ Email / 发邮件 / メール
+       href="mailto:yiwawang@gmail.com?subject=Found%20your%20luggage">
+       ✉️ Email
     </a>
 
     <div class="note">
