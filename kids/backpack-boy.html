@@ -1,28 +1,204 @@
-<div class="top">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emergency Contact / 紧急联系方式</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 👦🏻 Asian boy avatar -->
-  <svg class="avatar" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Child avatar">
-    <!-- face -->
-    <circle cx="50" cy="40" r="22" fill="#fde7d9"/>
-    <!-- hair -->
-    <path d="M28 36c2-14 42-14 44 0v6c-4-8-36-8-44 0z" fill="#1c1c1c"/>
-    <!-- eyes -->
-    <circle cx="42" cy="42" r="2.3" fill="#1a1a1a"/>
-    <circle cx="58" cy="42" r="2.3" fill="#1a1a1a"/>
-    <!-- smile -->
-    <path d="M43 49c4 3 10 3 14 0"
-          stroke="#aa7b6a" stroke-width="2"
-          fill="none" stroke-linecap="round"/>
-    <!-- shirt -->
-    <rect x="26" y="64" width="48" height="28" rx="14" fill="#bbdefb"/>
-  </svg>
+  <style>
+    body{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+                   "PingFang SC", "Microsoft YaHei", sans-serif;
+      background:#f3f7fb;
+      margin:0;
+      padding:20px;
+      text-align:center;
+      color:#222;
+    }
 
-  <!-- 🎒 Backpack indicator -->
-  <div class="bag-indicator">
-    🎒 Child’s Backpack
+    .card{
+      max-width:460px;
+      margin:auto;
+      background:#ffffff;
+      padding:24px;
+      border-radius:20px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .top{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      margin-bottom:8px;
+    }
+
+    .avatar{
+      width:72px;
+      height:72px;
+      margin-bottom:4px;
+    }
+
+    .tag-indicator{
+      font-size:14px;
+      color:#1565c0;
+      background:#e3f2fd;
+      padding:6px 12px;
+      border-radius:999px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    h1{
+      margin:6px 0 4px;
+      color:#1565c0;
+      font-size:28px;
+    }
+
+    .subtitle{
+      font-size:14px;
+      color:#555;
+      margin-bottom:10px;
+    }
+
+    .msg{
+      font-size:16px;
+      line-height:1.6;
+      margin:10px 0;
+    }
+
+    .divider{
+      height:1px;
+      background:#e0e0e0;
+      margin:18px 0;
+    }
+
+    .item{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:#f5f9ff;
+      border:1px solid #dbe7f6;
+      border-radius:14px;
+      padding:12px;
+      margin:10px 0;
+      font-size:15px;
+    }
+
+    .icon{
+      width:32px;
+      height:32px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#e3f2fd;
+      color:#0d47a1;
+      flex-shrink:0;
+    }
+
+    .icon.email{
+      background:#e8eaf6;
+      color:#283593;
+    }
+
+    a.button{
+      display:block;
+      margin:12px 0;
+      padding:15px;
+      border-radius:16px;
+      font-size:17px;
+      font-weight:800;
+      color:white;
+      text-decoration:none;
+    }
+
+    a.call{ background:#1976d2; }
+    a.sms{ background:#2e7d32; }
+    a.mail{ background:#3949ab; }
+
+    .note{
+      font-size:13px;
+      color:#666;
+      line-height:1.55;
+      margin-top:14px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body{ background:#121212; color:#f0f0f0; }
+      .card{ background:#1e1e1e; }
+      h1{ color:#90caf9; }
+      .subtitle,.note{ color:#aaa; }
+      .item{ background:#243447; border-color:#2f4a66; }
+      .icon{ background:#2f4a66; color:#90caf9; }
+      .icon.email{ background:#3a3f7a; color:#c5cae9; }
+      .tag-indicator{ background:#1a2a3a; color:#90caf9; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+
+    <!-- 👦🏻 Boy avatar -->
+    <svg class="avatar" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Child avatar">
+      <circle cx="50" cy="40" r="22" fill="#fde7d9"/>
+      <path d="M28 36c2-14 42-14 44 0v6c-4-8-36-8-44 0z" fill="#1c1c1c"/>
+      <circle cx="42" cy="42" r="2.3" fill="#1a1a1a"/>
+      <circle cx="58" cy="42" r="2.3" fill="#1a1a1a"/>
+      <path d="M43 49c4 3 10 3 14 0" stroke="#aa7b6a" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <rect x="26" y="64" width="48" height="28" rx="14" fill="#bbdefb"/>
+    </svg>
+
+    <div class="tag-indicator">🧷 Child Safety Tag · 儿童安全联系标签</div>
+
+    <h1>Child Emergency Info</h1>
+    <div class="subtitle">紧急联系方式</div>
+
+    <p class="msg">
+      This item belongs to a child.<br>
+      If the child needs help or this item is found, please contact a parent.
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- Contact info -->
+    <div class="item">
+      <span class="icon">📞</span>
+      Parent 1: +1 (602) 814-1450
+    </div>
+
+    <div class="item">
+      <span class="icon">📞</span>
+      Parent 2: +1 (213) 880-4979
+    </div>
+
+    <div class="item">
+      <span class="icon email">✉️</span>
+      yiwawang@gmail.com · tuo.gio.wang@gmail.com
+    </div>
+
+    <!-- Buttons -->
+    <a class="button call" href="tel:16028141450">📞 Call Parent 1</a>
+    <a class="button call" href="tel:12138804979">📞 Call Parent 2</a>
+
+    <a class="button sms"
+       href="sms:16028141450,12138804979?body=Hello,%20I%20found%20a%20child's%20item%20or%20the%20child%20may%20need%20help.">
+       💬 Text Parents
+    </a>
+
+    <a class="button mail"
+       href="mailto:yiwawang@gmail.com,tuo.gio.wang@gmail.com?subject=Child%20Emergency%20Contact">
+       ✉️ Email Parents
+    </a>
+
+    <div class="note">
+      Thank you for helping keep a child safe.<br>
+      感谢你帮助孩子的安全。
+    </div>
+
   </div>
-
-  <div class="badge">Emergency Contact</div>
-  <h1>Child Emergency Info</h1>
-  <div class="subtitle">紧急联系方式</div>
-</div>
+</body>
+</html>
