@@ -1,282 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lost Luggage / 行李丢失 / 紛失した荷物</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Emergency Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    body{
+    body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
-                   "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", sans-serif;
-      background:#f5f5f5;
-      margin:0;
-      padding:20px;
-      text-align:center;
+                   "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f3f7fb;
+      margin: 0;
+      padding: 20px;
+      color: #222;
     }
 
-    .card{
-      max-width:480px;
-      margin:auto;
-      background:white;
-      padding:22px 22px 26px;
-      border-radius:18px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.10);
+    .card {
+      max-width: 480px;
+      margin: auto;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     }
 
-    .top{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:10px;
-      padding:6px 0 10px;
+    .top {
+      text-align: center;
+      margin-bottom: 14px;
     }
 
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:#fff3f3;
-      color:#b71c1c;
-      padding:8px 14px;
-      border-radius:999px;
-      font-weight:700;
-      font-size:14px;
-      border:1px solid #ffe0e0;
+    .icon-alert {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 8px;
     }
 
-    h1{
-      margin:4px 0;
-      color:#d32f2f;
-      font-size:28px;
+    .tag-indicator {
+      display: inline-block;
+      font-size: 14px;
+      color: #b71c1c;
+      background: #fdecea;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 6px;
     }
 
-    .subtitle{
-      margin:0 0 8px;
-      color:#666;
-      font-size:13px;
+    h1 {
+      margin: 6px 0 4px;
+      color: #b71c1c;
+      font-size: 28px;
     }
 
-    .msg{
-      font-size:16px;
-      line-height:1.6;
-      margin:10px 0 0;
-      color:#222;
+    .subtitle {
+      font-size: 14px;
+      color: #555;
     }
 
-    .divider{
-      height:1px;
-      background:#eee;
-      margin:16px 0;
+    /* BIG, EYE-CATCHING NOTICE */
+    .notice {
+      margin: 18px 0 22px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: #fff4f4;
+      border-left: 6px solid #d32f2f;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.5;
+      text-align: left;
+      color: #b71c1c;
     }
 
-    .lang{
-      text-align:left;
-      margin-top:8px;
+    .notice p {
+      margin: 0;
     }
 
-    .lang h2{
-      font-size:15px;
-      margin:0 0 6px;
-      color:#111;
+    .notice p + p {
+      margin-top: 10px;
     }
 
-    .lang p{
-      margin:0 0 8px;
-      line-height:1.65;
-      font-size:15px;
+    .parent-card {
+      border: 1px solid #dbe7f6;
+      background: #f5f9ff;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 16px;
     }
 
-    .items{
-      margin-top:10px;
+    .parent-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
     }
 
-    .item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin:10px 0;
-      font-size:15px;
-      background:#fafafa;
-      border:1px solid #eee;
-      padding:10px 12px;
-      border-radius:12px;
-      color:#333;
+    .parent-name {
+      font-size: 17px;
+      font-weight: 900;
+      color: #0d47a1;
     }
 
-    .icon{
-      width:30px;
-      height:30px;
-      border-radius:10px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:#f0f0f0;
-      font-size:16px;
-      flex-shrink:0;
+    .parent-number {
+      font-family: ui-monospace, Menlo, monospace;
+      font-size: 14px;
+      color: #222;
     }
 
-    /* 🌸 Email icon special styling (light mode fix) */
-    .email-icon{
-      background:#ede7f6;
-      color:#6a1b9a;
+    .parent-email {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+      word-break: break-word;
     }
 
-    a.button{
-      display:block;
-      margin:12px 0;
-      padding:14px;
-      text-decoration:none;
-      color:white;
-      border-radius:14px;
-      font-size:17px;
-      font-weight:700;
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    a.button.call{ background:#1976d2; }
-    a.button.sms{ background:#2e7d32; }
-    a.button.mail{ background:#6a1b9a; }
-
-    .note{
-      margin-top:14px;
-      font-size:13px;
-      color:#777;
-      line-height:1.55;
+    a.btn {
+      flex: 1 1 120px;
+      padding: 13px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 900;
+      text-decoration: none;
+      color: white;
+      text-align: center;
     }
 
-    .cute{
-      width:92px;
-      height:92px;
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.10));
+    .call { background: #1976d2; }
+    .sms  { background: #2e7d32; }
+    .mail { background: #6a1b9a; }
+
+    .note {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.55;
+      margin-top: 16px;
+      text-align: left;
     }
 
-    /* 🌙 DARK MODE */
+    /* 🌙 Dark mode (auto with system) */
     @media (prefers-color-scheme: dark) {
-      body{
-        background:#121212;
+      body { background: #121212; color: #f0f0f0; }
+      .card { background: #1e1e1e; }
+      h1 { color: #ff6b6b; }
+      .subtitle, .note { color: #aaa; }
+
+      .notice {
+        background: #3a1a1a;
+        border-left-color: #ff6b6b;
+        color: #ffb3b3;
       }
-      .card{
-        background:#1e1e1e;
-        box-shadow:0 8px 22px rgba(0,0,0,0.6);
+
+      .parent-card {
+        background: #243447;
+        border-color: #2f4a66;
       }
-      h1{
-        color:#ff6b6b;
-      }
-      .subtitle,
-      .note{
-        color:#aaa;
-      }
-      .msg,
-      .lang p,
-      .lang h2{
-        color:#f0f0f0;
-      }
-      .item{
-        background:#2a2a2a;
-        border-color:#333;
-        color:#eee;
-      }
-      .icon{
-        background:#333;
-      }
-      .email-icon{
-        background:#3a2a4a;
-        color:#e1bee7;
-      }
-      .badge{
-        background:#2a1a1a;
-        color:#ffb3b3;
-        border-color:#402020;
-      }
+
+      .parent-name { color: #90caf9; }
+      .parent-number { color: #f0f0f0; }
+      .parent-email { color: #ccc; }
     }
   </style>
 </head>
 
 <body>
   <div class="card">
+
     <div class="top">
-
-      <!-- Cute luggage icon -->
-      <svg class="cute" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Cute luggage">
-        <defs>
-          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#fff1f1"/>
-            <stop offset="1" stop-color="#f1f7ff"/>
-          </linearGradient>
-          <linearGradient id="case" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#ffcc80"/>
-            <stop offset="1" stop-color="#ffb74d"/>
-          </linearGradient>
-        </defs>
-
-        <circle cx="60" cy="60" r="54" fill="url(#bg)" stroke="#ffe0e0" stroke-width="3"/>
-        <rect x="44" y="22" width="32" height="14" rx="7" fill="#555"/>
-        <rect x="48" y="26" width="24" height="8" rx="4" fill="#777"/>
-        <rect x="34" y="36" width="52" height="56" rx="14" fill="url(#case)" stroke="#f59f00" stroke-width="3"/>
-        <rect x="44" y="44" width="32" height="40" rx="10" fill="#ffd180" opacity="0.85"/>
-        <rect x="58" y="36" width="4" height="56" fill="#f59f00" opacity="0.7"/>
-        <circle cx="44" cy="94" r="6" fill="#555"/>
-        <circle cx="76" cy="94" r="6" fill="#555"/>
-        <path d="M92 56c0-4 3-7 7-7 3 0 6 2 7 5 1-3 4-5 7-5 4 0 7 3 7 7 0 8-14 16-14 16S92 64 92 56z"
-              fill="#ff5252" opacity="0.95" transform="translate(-9,-2) scale(0.78)"/>
+      <!-- ❗ Emergency icon -->
+      <svg class="icon-alert" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" fill="#d32f2f"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#ffffff" stroke-width="4"/>
+        <rect x="47" y="24" width="6" height="34" rx="3" fill="#ffffff"/>
+        <circle cx="50" cy="68" r="4" fill="#ffffff"/>
       </svg>
 
-      <div class="badge">🧳 Lost Item • Thank you for helping!</div>
-      <h1>Lost Luggage</h1>
-      <div class="subtitle">行李丢失 · 紛失した荷物 · Lost Item Tag</div>
+      <div class="tag-indicator">❗ Please Contact Parent</div>
+      <h1>Emergency Contact</h1>
+      <div class="subtitle">紧急联系方式</div>
     </div>
 
-    <div class="lang">
-      <h2>English</h2>
-      <p class="msg">
-        Thank you so much for finding my luggage. ❤️<br>
-        Please contact me using the options below. I really appreciate your help!
-      </p>
+    <!-- BIG NOTICE -->
+    <div class="notice">
+      <p>This item belongs to a child.</p>
+      <p>If the child needs help or this item is found, please contact a parent.</p>
     </div>
 
-    <div class="divider"></div>
-
-    <div class="lang">
-      <h2>中文</h2>
-      <p class="msg">
-        非常感谢你捡到或找到我的行李！❤️<br>
-        麻烦通过下面的方式联系我，真的非常感谢你的帮助！
-      </p>
+    <!-- Parent 1 -->
+    <div class="parent-card">
+      <div class="parent-header">
+        <div class="parent-name">Parent 1</div>
+        <div class="parent-number">+1 (602) 814-1450</div>
+      </div>
+      <div class="parent-email">yiwawang@gmail.com</div>
+      <div class="btn-row">
+        <a class="btn call" href="tel:16028141450">📞 Call</a>
+        <a class="btn sms"
+           href="sms:16028141450?body=Hello%2C%0A%0AI%20found%20a%20child%27s%20item%20or%20the%20child%20may%20need%20help.%0A%0APlease%20contact%20me.%20Thank%20you.">
+           💬 Text
+        </a>
+        <a class="btn mail"
+           href="mailto:yiwawang@gmail.com?subject=Emergency%20Contact&body=Hello%2C%0A%0AI%20found%20a%20child%27s%20item%20or%20the%20child%20may%20need%20help.%0A%0APlease%20contact%20me.%20Thank%20you.">
+           ✉️ Email
+        </a>
+      </div>
     </div>
 
-    <div class="divider"></div>
-
-    <div class="lang">
-      <h2>日本語</h2>
-      <p class="msg">
-        私の荷物を見つけていただき、ありがとうございます。❤️<br>
-        お手数ですが、下記の方法でご連絡いただけると幸いです。
-      </p>
+    <!-- Parent 2 -->
+    <div class="parent-card">
+      <div class="parent-header">
+        <div class="parent-name">Parent 2</div>
+        <div class="parent-number">+1 (213) 880-4979</div>
+      </div>
+      <div class="parent-email">tuo.gio.wang@gmail.com</div>
+      <div class="btn-row">
+        <a class="btn call" href="tel:12138804979">📞 Call</a>
+        <a class="btn sms"
+           href="sms:12138804979?body=Hello%2C%0A%0AI%20found%20a%20child%27s%20item%20or%20the%20child%20may%20need%20help.%0A%0APlease%20contact%20me.%20Thank%20you.">
+           💬 Text
+        </a>
+        <a class="btn mail"
+           href="mailto:tuo.gio.wang@gmail.com?subject=Emergency%20Contact&body=Hello%2C%0A%0AI%20found%20a%20child%27s%20item%20or%20the%20child%20may%20need%20help.%0A%0APlease%20contact%20me.%20Thank%20you.">
+           ✉️ Email
+        </a>
+      </div>
     </div>
-
-    <div class="divider"></div>
-
-    <div class="items">
-      <div class="item"><span class="icon">📍</span>California, USA</div>
-      <div class="item"><span class="icon">📞</span>+1 (602) 814-1450</div>
-      <div class="item"><span class="icon email-icon">✉️</span>yiwawang@gmail.com</div>
-    </div>
-
-    <a class="button call" href="tel:16028141450">📞 Call</a>
-    <a class="button sms"
-       href="sms:16028141450?body=Hello!%20I%20found%20your%20luggage.%20(你好！我找到你的行李了。荷物を見つけました。)">
-       💬 Text
-    </a>
-    <a class="button mail"
-       href="mailto:yiwawang@gmail.com?subject=Found%20your%20luggage">
-       ✉️ Email
-    </a>
 
     <div class="note">
-      Please keep the luggage safe if possible and contact me when convenient.<br>
-      如果方便的话，请先帮我保管好行李，再联系我。<br>
-      可能であれば、荷物を安全に保管していただき、ご都合のよい時にご連絡ください。
+      Thank you for helping keep a child safe.<br>
+      感谢你帮助孩子的安全。
     </div>
+
   </div>
 </body>
 </html>
