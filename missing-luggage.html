@@ -26,35 +26,28 @@
 
     .top {
       text-align: center;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
+    /* 🧳 BIG CENTER ICON */
     .icon {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 10px;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 12px;
+      display: block;
     }
 
-    .tag {
-      display: inline-block;
-      font-size: 14px;
+    .title {
+      font-size: 30px;
+      font-weight: 800;
       color: #0d47a1;
-      background: #e3f2fd;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    h1 {
-      margin: 6px 0 4px;
-      color: #0d47a1;
-      font-size: 28px;
+      margin: 0;
     }
 
     .subtitle {
-      font-size: 14px;
-      color: #555;
+      font-size: 15px;
+      color: #666;
+      margin-top: 6px;
     }
 
     /* Main message */
@@ -114,18 +107,13 @@
       body { background: #121212; color: #f0f0f0; }
       .card { background: #1e1e1e; }
 
-      h1 { color: #90caf9; }
+      .title { color: #90caf9; }
       .subtitle, .note { color: #aaa; }
 
       .notice {
         background: #1e2a3a;
         border-left-color: #90caf9;
         color: #cfe3ff;
-      }
-
-      .tag {
-        background: #1a2a3a;
-        color: #90caf9;
       }
     }
   </style>
@@ -135,18 +123,17 @@
   <div class="card">
 
     <div class="top">
-      <!-- 🧳 Luggage icon -->
+      <!-- 🧳 Centered large luggage icon -->
       <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Missing Luggage">
-        <rect x="28" y="20" width="44" height="12" rx="6" fill="#555"/>
-        <rect x="24" y="32" width="52" height="56" rx="12" fill="#90caf9"/>
-        <rect x="46" y="32" width="8" height="56" fill="#64b5f6"/>
-        <circle cx="34" cy="90" r="4" fill="#555"/>
-        <circle cx="66" cy="90" r="4" fill="#555"/>
+        <rect x="30" y="16" width="40" height="14" rx="7" fill="#555"/>
+        <rect x="22" y="30" width="56" height="58" rx="14" fill="#90caf9"/>
+        <rect x="46" y="30" width="8" height="58" fill="#64b5f6"/>
+        <circle cx="34" cy="92" r="4" fill="#555"/>
+        <circle cx="66" cy="92" r="4" fill="#555"/>
       </svg>
 
-      <div class="tag">🧳 Missing Luggage</div>
-      <h1>Lost &amp; Found</h1>
-      <div class="subtitle">Thank you for your help</div>
+      <h1 class="title">Missing Luggage</h1>
+      <div class="subtitle">Lost &amp; Found</div>
     </div>
 
     <div class="notice">
@@ -155,26 +142,4 @@
     </div>
 
     <div class="btn-row">
-      <a class="btn call" href="tel:16028141450">
-        📞 Call
-      </a>
-
-      <a class="btn sms"
-         href="sms:16028141450?body=Hello%2C%20I%20found%20your%20luggage.%20Please%20contact%20me.%20Thank%20you.">
-        💬 Text
-      </a>
-
-      <a class="btn mail"
-         href="mailto:yiwawang@gmail.com?subject=Found%20your%20luggage&body=Hello%2C%0A%0AI%20found%20your%20luggage.%20Please%20contact%20me.%0A%0AThank%20you.">
-        ✉️ Email
-      </a>
-    </div>
-
-    <div class="note">
-      If it’s more convenient, please keep the luggage safe and contact me when you can.<br>
-      Thank you very much for your kindness.
-    </div>
-
-  </div>
-</body>
-</html>
+      <a class=
